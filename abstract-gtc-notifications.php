@@ -279,7 +279,7 @@ if ( ! class_exists( 'GTC_Notifications' ) ) {
 			$message = $this->rtl_support( wpautop( $this->get_message() ) ) ;
 			$message = $this->email_inline_style( $message ) ;
 
-			if ( '2' == $this->get_email_type() ) {
+			if ( '2' == $this->get_email_type() && !($this->id==='customer_virtual_gift_card')) {
 				ob_start() ;
 				wc_get_template( 'emails/email-header.php', array( 'email_heading' => $this->get_subject() ) ) ;
 				echo esc_textarea( $message ) ;
